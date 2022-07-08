@@ -6,7 +6,6 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
 <script src="https://kit.fontawesome.com/d7e37ce95a.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/application.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -17,7 +16,7 @@
 
   <body>
     <header id="main-nav" class="clearfix">
-      <a href="a" class="name">Eduardo Bertrand</a>
+      <%= link_to "Eduardo Bertrand", root_path, class: "name" %>
       <nav>
         <%= link_to "Articles", posts_path %>
         <a href="">Projects</a>
@@ -26,5 +25,15 @@
     </header>
 
     <%= yield %>
+
+    <footer id="main_footer">
+    <p class="copyright">&copy; 2022 Eduardo Bertrand</p>
+    <nav>
+      <a href="https://github.com/Knightmare4u" target="_blank"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/eduardo-bertrand-617843160/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.facebook.com/Bertrand1410" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+    </nav>
+  </footer>
+
   </body>
 </html>
