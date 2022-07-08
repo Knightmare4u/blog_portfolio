@@ -34,10 +34,10 @@ class PostsController < ApplicationController
 		
 	end
 
-	def destroy
-  @post.destroy
-  redirect_to posts_url, status: :see_other, notice: "Post was successfully destroyed."
-end
+		def destroy
+  		@post.destroy
+  		redirect_to posts_url, status: :see_other, notice: "Post was successfully destroyed."
+	end
 
 	def find_post
 		@post = Post.find_by(id: params[:id])
