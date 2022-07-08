@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Eduardo Bertrand - IT Specialist & Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600;700&display=swap" rel="stylesheet">
+<script src="https://kit.fontawesome.com/d7e37ce95a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/application.css">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +16,15 @@
   </head>
 
   <body>
+    <header id="main-nav" class="clearfix">
+      <a href="a" class="name">Eduardo Bertrand</a>
+      <nav>
+        <%= link_to "Articles", posts_path %>
+        <a href="">Projects</a>
+        <a href="">Contact</a>
+      </nav>
+    </header>
+
     <%= yield %>
   </body>
 </html>
