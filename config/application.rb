@@ -1,5 +1,8 @@
 require_relative "boot"
 
+# config/application.rb
+    config.assets.initialize_on_precompile = false
+
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
@@ -18,8 +21,7 @@ module Blog
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    # config/application.rb
-    config.assets.initialize_on_precompile = false
+    
 
   end
 end
