@@ -30,6 +30,8 @@ gem 'pygments.rb'
 
 gem 'redcarpet', '~> 3.3', '>= 3.3.4'
 
+gem 'pg'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -68,7 +70,6 @@ group :development do
 end
 
 group :development do 
-gem 'pg';
 gem 'rails_12factor'
   
 end
