@@ -1,0 +1,32 @@
+<div id="post_show_content" class="skinny_wrapper wrapper_padding">
+ 		<header>
+ 			 <p class="date"><%= @project.created_at.strftime('%A, %b %d') %></p>
+ 			 <h1><%= @project.title %></h1>
+ 			 <hr>
+ 		</header>
+
+ 		<div id="content">
+ 			<%= markdown @project.description %>
+
+ 			<style type="text/css">
+ 				.project_button {
+   					 background: #8bc6db;
+    				color: white;
+   				 	text-decoration: none;
+    				padding: 1em 2em;
+					}
+				.button_wrapper {
+    				margin: 4em 0 0 0;
+    				text-align: center;
+
+					}
+ 			</style>
+ 			<div class="button_wrapper">
+ 				<a href="<%= @project.link %>" class="project_button" target="_blank">Visit <%= @project.title %>
+ 				</a>
+ 			</div>
+ 		</div>
+ 	</div>
+ 
+ 	<hr>
+</div>
