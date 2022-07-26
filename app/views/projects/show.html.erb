@@ -28,5 +28,8 @@
  		</div>
  	</div>
  
+ 	<%= link_to "Edit", edit_project_path(@project) %>
+	<%= link_to "Delete", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+
  	<hr>
 </div>

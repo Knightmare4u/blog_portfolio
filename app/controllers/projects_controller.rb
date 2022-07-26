@@ -24,6 +24,22 @@ class ProjectsController < ApplicationController
 
 	end
 
+	def edit
+	end
+
+	def update
+		if @project.update project_params
+			redirect_to @project, notice: "Nice Eduardo, that project was successfully saved!"
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@project.destroy
+		redirect_to projects_url, status: :see_other, notice: "Post was successfully destroyed."
+	end
+
 	public
 
 	def find_project
