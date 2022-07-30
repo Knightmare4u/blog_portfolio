@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "heroku": "^7.60.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.7.1"
   }
 }
