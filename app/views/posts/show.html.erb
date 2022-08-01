@@ -1,41 +1,69 @@
 <div id="post_show_content" class="skinny_wrapper wrapper_padding">
- 		<header>
- 			 <p class="date"><%= @post.created_at.strftime('%A, %b %d') %></p>
- 			 <h1><%= @post.title %></h1>
- 			 <hr>
- 		</header>
- 		
- 		<%= image_tag(@post.image, style:'width:100%') %>
+	<header>
+		<p class="date"><%= @post.created_at.strftime('%A, %b %d') %></p>
+		<h1><%= @post.title %></h1>
+		<hr />
+	</header>
 
- 		<div id="content">
- 			<%= markdown @post.content %>
- 		</div>
- 		<hr>
- 		<div id="share_box">
- 			<p>Share Article 1</p>
- 			<a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
-  			 href="https://twitter.com/share?text=<%= url_for{[@post, {only_path: false}]} %>"
-   			rel="noopener" target="_blank">
-  			<i class="fab fa fa-twitter"></i>
-			</a>
- 			<a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
-  			 href="https://www.facebook.com/sharer.php?u=<%= url_for{[@post, {only_path: false}]} %>"
-   			rel="noopener" target="_blank">
-   			<i class="fa fa-facebook"></i></a>
- 			<a class="btn-floating btn btn-tw" type="button" role="button" title="Share on twitter"
-  			 href="https://plus.google.com/share?url=<%= url_for{[@post, {only_path: false}]} %>"
-   			rel="noopener" target="_blank">
-   			<i class="fa fa-google-plus"></i></a>
- 		</div>
- 		<hr>
- 		<%= render 'disqus' %>
- 	</div>
+	<%= image_tag(@post.image, style:'width:100%') %>
 
+	<div id="content"><%= markdown @post.content %></div>
+	<hr />
+	<div id="share_box">
+		<p>Share Article 1</p>
+		<a
+			class="btn-floating btn btn-tw"
+			type="button"
+			role="button"
+			title="Share on twitter"
+			href="https://twitter.com/share?text=<%= url_for{[@post, {only_path: false}]} %>"
+			rel="noopener"
+			target="_blank"
+		>
+			<i class="fab fa fa-twitter"></i>
+		</a>
+		<a
+			class="btn-floating btn btn-tw"
+			type="button"
+			role="button"
+			title="Share on twitter"
+			href="https://www.facebook.com/sharer.php?u=<%= url_for{[@post, {only_path: false}]} %>"
+			rel="noopener"
+			target="_blank"
+		>
+			<i class="fa fa-facebook"></i
+		></a>
+		<a
+			class="btn-floating btn btn-tw"
+			type="button"
+			role="button"
+			title="Share on twitter"
+			href="https://plus.google.com/share?url=<%= url_for{[@post, {only_path: false}]} %>"
+			rel="noopener"
+			target="_blank"
+		>
+			<i class="fa fa-google-plus"></i
+		></a>
+	</div>
+	<hr />
+	<%= render 'disqus' %>
+</div>
 
+<br />
+<br />
 
-<br>
-<br>
-
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Delete", post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-
+<% if session[:user_id].nil? %>
+<div style="visibility: hidden">
+	<%= link_to "Edit", edit_post_path(@post) %> 
+	<%= link_to "Delete",
+	post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you
+	sure?" } %>
+</div>
+<% else %>
+	<div>
+	<%= link_to "Edit", edit_post_path(@post) %> 
+	<%= link_to "Delete",
+	post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you
+	sure?" } %>
+</div>
+<% end %>
