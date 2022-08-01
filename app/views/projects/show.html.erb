@@ -30,8 +30,21 @@
  		</div>
  	</div>
  
- 	<%= link_to "Edit", edit_project_path(@project) %>
-	<%= link_to "Delete", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+ 	<% if session[:user_id].nil? %>
+<div style="visibility: hidden">
+	<%= link_to "Edit", edit_post_path(@post) %> 
+	<%= link_to "Delete",
+	post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you
+	sure?" } %>
+</div>
+<% else %>
+	<div>
+	<%= link_to "Edit", edit_post_path(@post) %> 
+	<%= link_to "Delete",
+	post_path(@post), data: { turbo_method: :delete, turbo_confirm: "Are you
+	sure?" } %>
+</div>
+<% end %>
 
  	<hr>
 </div>
