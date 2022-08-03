@@ -40,7 +40,7 @@ gem 'mail_form', '~> 1.9'
 
 gem 'devise'
 
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
