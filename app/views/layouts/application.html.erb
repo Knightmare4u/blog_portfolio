@@ -31,6 +31,10 @@
          .name{
           margin-left: 70px;
          } 
+
+         #sign_out {
+          display: inline-block;
+         }
         
       </style>
       <img src="https://lh3.googleusercontent.com/a-/AFdZucrwea9mM5G54xUh_woZkvb3JZnYXmeSokCz3EF3=s544-p-k-rw-no" alt="Avatar" class="avatar">
@@ -39,8 +43,23 @@
         <%= link_to "Articles", posts_path %>
         <%= link_to "Projects", projects_path %>
         <%= link_to "Contact", new_contact_path %>
+        
+        <div id="sign_out">
+          <% if user_signed_in? %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+        <% end %>
+        </div>
+          
       </nav>
     </header>
+
+    <style>
+      .notice, .alert {
+    text-align: center;
+    padding: 1em 0;
+    border-bottom: 1px solid #E9E9E;
+      }
+    </style>
     <% if notice %>
       <p class="notice"><%= notice %></p>
     <% elsif alert %>  

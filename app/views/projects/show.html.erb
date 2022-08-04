@@ -27,13 +27,37 @@
  				<a href="<%= @project.link %>" class="project_button" target="_blank">Visit <%= @project.title %>
  				</a>
  			</div>
+
+	<style>
+		#admin_links{
+	border-top: 1px solid #E9E9E9;
+	border-bottom: 1px solid #E9E9E9;
+	text-align: center;
+	padding: 1em 0;
+	margin: 3em 0;
+		}
+	a {
+		color: #9a9da4;
+		margin: 0 1em;
+		font-weight: bold;
+		font-size: .8em;
+		text-transform: uppercase;
+		text-decoration: none;
+		}
+	}
+	</style>
+	<% if user_signed_in? %>
+	<div id="admin_links">
+	<%= link_to "Edit", edit_project_path(@project) %> 
+	<%= link_to "Delete",
+	project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Are you
+	sure?" } %>
+		
+	</div>
+	<% end %>
  		</div>
  	</div>
  
- 	<div style="visibility: hidden">
- 		<%= link_to "Edit", edit_project_path(@project) %>
-		<%= link_to "Delete", project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
- 	</div>
  	<hr style="width:50px; margin: auto;" />
  	
 </div>
