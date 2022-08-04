@@ -1,40 +1,71 @@
-<div class="wrapper wrapper_padding clearfix">
- 		<div class="col-1 about homepage_content">
- 			<!-- <style>
-				.avatar {
-				  width: 80px;
-				  height: 80px;
-				  border-radius: 50%;
-				  border-style: solid;
-				  border-color: #8bc6db;
-				  margin-left: -10px;
-					}
-				#about{
-					text-align: left;
-				}
-				
-			</style> -->
-			<h2 id="about">About</h2> 
-			<!-- <img src="https://lh3.googleusercontent.com/a-/AFdZucrwea9mM5G54xUh_woZkvb3JZnYXmeSokCz3EF3=s544-p-k-rw-no" alt="Avatar" class="avatar"> -->
- 			<hr>
- 			<p> The aim of this blog is to teach and share knowledge about the world of programming. We show real-world examples so you can learn from them, as well as providing tips and advice about best practices for aspiring developers.</p>
- 			<p> I have three years of experience programming, and my current job as IT specialist has given me the opportunity to work on a variety of projects. While I enjoy the creativity and productivity of development, my personal interests lie in computer security, network administration and web development. </p> 
- 		</div>
- 		<div class="col-2 homepage_content">
- 			<h2>Stuff I've Written</h2>
- 			<hr>
 
- 			<% @posts.each do |post| %>
- 				<h3><a href="#"><%= link_to post.title, post %></a></h3>
- 				<p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
- 			<% end %>
- 		</div>
- 		<div class="col-3 homepage_content">
- 			<h2>Stuff I've Built</h2>
- 			<hr>
- 			<% @projects.each do |project| %>
- 				<h3><a href="#"><%= link_to project.title, project %></a></h3>
- 				<p class="date"><%= project.created_at.strftime("%A, %b %d") %></p>
- 			<% end %>
- 		</div>
- 	</div>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		/* Create three equal columns that floats next to each other */
+		.col-1, .col-2, .col-3 {
+			float: left;
+			width: 33.33%;
+			padding: 10px;
+				
+		}
+
+		.wrapper_padding {
+			display: block;
+			margin-left: auto;
+  			margin-right: -5%;
+		}
+
+		/* Clear floats after the columns */
+		.wrapper_padding:after {
+			content: "";
+			display: table;
+			clear: both;
+		}
+
+		/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+		@media screen and (max-width: 600px) {
+			.col-1, .col-2, .col-3 {
+				width: 100%;
+			}
+		}
+	</style>
+<div class="wrapper wrapper_padding clearfix">
+	<div class="col-1 about homepage_content">
+		<h2 id="about">About</h2>
+		<hr />
+		<p>
+			The aim of this blog is to teach and share knowledge about the world
+			of programming. We show real-world examples so you can learn from
+			them, as well as providing tips and advice about best practices for
+			aspiring developers.
+		</p>
+		<p>
+			I have three years of experience programming, and my current job as
+			IT specialist has given me the opportunity to work on a variety of
+			projects. While I enjoy the creativity and productivity of
+			development, my personal interests lie in computer security, network
+			administration and web development.
+		</p>
+	</div>
+	<div class="col-2 homepage_content">
+		<h2>Stuff I've Written</h2>
+		<hr />
+
+		<% @posts.each do |post| %>
+		<h3><a href="#"><%= link_to post.title, post %></a></h3>
+		<p class="date"><%= post.created_at.strftime("%A, %b %d") %></p>
+		<% end %>
+	</div>
+	<div class="col-3 homepage_content">
+		<h2>Stuff I've Built</h2>
+		<hr />
+		<% @projects.each do |project| %>
+		<h3><a href="#"><%= link_to project.title, project %></a></h3>
+		<p class="date"><%= project.created_at.strftime("%A, %b %d") %></p>
+		<% end %>
+	</div>
+</div>
