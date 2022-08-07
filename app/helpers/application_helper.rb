@@ -1,3 +1,19 @@
+class HTMLBlockCode < Redcarpet::Render::HTML
+  include ActionView::Helpers::AssetTagHelper
+
+  def image(link, title, alt_text)
+    image_tag(link, title: title, alt: alt_text, width: "100%")
+  end
+end
+
+def markdown(text)
+   renderer = HTMLBlockCode.new
+   text.gsub!(/(https?:\/\/[\S]*.png)/, '![](\1)')
+   markdown = Redcarpet::Markdown.new(renderer)
+   markdown.render(text)
+end
+
+
 module ApplicationHelper
 	class HTMLwithPygments < Redcarpet::Render::HTML
 		def block_code(code, language)
